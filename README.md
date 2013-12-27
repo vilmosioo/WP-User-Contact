@@ -1,16 +1,12 @@
 # WP User Contact
 
-Just another WordPress plugin. 
-
-## Description
-
-TODO Long description
+A simple WordPress plugin that adds additional contact details to registered users.
 
 ### Contribute!
 
-If you have suggestions for a new add-on, feel free to email me at TODO. Alternatively, you can fork the plugin from [Gihub]()
+If you have suggestions for a new add-on, feel free to email me at ioo.vilmos [at] gmail. Alternatively, you can fork the plugin from [Gihub](https://github.com/vilmosioo/WP-User-Contact)
 
-Or follow updates on [Twitter]()!
+Or follow updates on [Twitter](http://twitter.com/vilmosioo)!
  
 ### Installation
 

@@ -1,15 +1,14 @@
 <?php
 /*
 Plugin Name: WP User Contact
-Plugin URI: TODO
-Description: TODO 
+Plugin URI: https://github.com/vilmosioo/WP-User-Contact
+Description: A simple WordPress plugin that adds additional contact details to registered users.  
 Version: 0.0.1
-Author: TODO
-Author URI: TODO
-Author Email: TODO
+Author: Vilmos Ioo
+Author URI: http://vilmosioo.co.uk
 License: GPL2
 
-	Copyright 2014 TODO  (email : TODO)
+	Copyright 2014 Vilmos Ioo
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
@@ -50,7 +49,18 @@ class WPUserContact_Plugin {
 		register_deactivation_hook(__FILE__, array( &$this, 'deactivate' ) );
 		
 		// TODO write more functionality here
+		add_filter('user_contactmethods', array(&$this, 'user_contactmethods'));
 	} 
+
+	function user_contactmethods($user_contactmethods){
+
+		$user_contactmethods['twitter'] = 'Twitter Username';
+		$user_contactmethods['linkedin'] = 'LinkedIn Profile';
+		$user_contactmethods['github'] = 'Github Username';
+
+		return $user_contactmethods;
+	}
+
 
 	/**
 	 * Fired when the plugin is activated.
