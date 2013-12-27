@@ -50,13 +50,22 @@ class WPUserContact_Plugin {
 		
 		// TODO write more functionality here
 		add_filter('user_contactmethods', array(&$this, 'user_contactmethods'));
+		// create contact shortcode
+		add_shortcode('contact', array( &$this, 'print_contact_link' ));
 	} 
 
-	function user_contactmethods($user_contactmethods){
+	public function print_contact_link($atts, $content = null){
+		extract(shortcode_atts(array('user_id' => '', 'type' => 'twitter', 'class' => 'icon'), $atts));
+		if(!isset($user_id) || empty($user_id)) return;
+		
+		return "<a class='$type $class' href='".get_user_meta($user_id, $type, true)."'>".do_shortcode($content)."</a>";
+	}
 
-		$user_contactmethods['twitter'] = 'Twitter Username';
-		$user_contactmethods['linkedin'] = 'LinkedIn Profile';
-		$user_contactmethods['github'] = 'Github Username';
+	public function user_contactmethods($user_contactmethods){
+
+		$user_contactmethods['twitter'] = 'Twitter';
+		$user_contactmethods['linkedin'] = 'LinkedIn';
+		$user_contactmethods['github'] = 'Github';
 
 		return $user_contactmethods;
 	}
